@@ -17,6 +17,7 @@ class BlogPost(models.Model):
     blogger = models.ForeignKey('Blogger', on_delete=models.SET_NULL, null=True)
     topic = models.ManyToManyField('Topic', help_text='Select a topic for this post.')
     postdate = models.DateTimeField(auto_now=True)
+    blog_body = models.CharField(max_length=1000, null=True)
 
     def display_topic(self):
         """Create a string for the topic name"""

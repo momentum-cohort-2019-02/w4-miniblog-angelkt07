@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1 style="margin-top:20px;margin-bottom:20px;">Blog Post List</h1>
+    {% if blogpost_list %}
+    <ul>
+        {% for blogpost in blogpost_list %}
+            <li>
+                <a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a> ({{blogpost.blogger}})
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>There are no posts at this time.</p>
+    {% endif %}
+{% endblock %}

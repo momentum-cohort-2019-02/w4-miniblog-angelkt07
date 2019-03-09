@@ -11,6 +11,8 @@ class BloggerAdmin(admin.ModelAdmin):
     fields = ['first_name', 'last_name', ('occupation', 'city')]
 
 admin.site.register(Blogger, BloggerAdmin)
+class BlogCommentInLine(admin.TabularInline):
+    model = BlogComment
 
 @admin.register(BlogPost)
 class BlogPostAdmin(admin.ModelAdmin):
@@ -20,13 +22,11 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 @admin.register(BlogComment)
 class BlogCommentAdmin(admin.ModelAdmin):
+    list_display = ('blogpost',)
     fieldsets = (
         (None, {
             'fields': ('blogpost', 'comment', 'id')
         }),
     )
-
-class BlogCommentInline(admin.TabularInLine):
-    model = BlogComment
 
 

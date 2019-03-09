@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1 style="margin-top:20px;margin-bottom:20px;">Blogger List</h1>
+    {% if blogger_list %}
+    <ul>
+        {% for blogger in blogger_list %}
+            <li>
+                <a href="{{ blogger.get_absolute_url }}">{{blogger.last_name}}, {{blogger.first_name}} ({{blogger.city}}-{{blogger.email}})</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>There are no posts available.</p>
+    {% endif %}
+{% endblock %}
