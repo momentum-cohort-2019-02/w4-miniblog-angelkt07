@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1 style="margin-top:20px;margin-bottom:20px;">Title: {{ blogpost.title }}</h1>
+
+    <p><strong>Blogger:</strong><a href="">{{ blogpost.blogger }}</a></p>
+    <p><strong>Blog Post:</strong> {{ <blogpost class="blog_body"></blogpost> }}</p>
+    <p><strong>Topic:</strong> {% for topic in blogpost.topic.all %} {{ topic }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+    <div style="margin-left:20px;margin-top:20px">
+        <h4>Comments</h4>
+
+        {% for comment in blogpost.blogcomment_set.all %}
+            <hr>
+            <p><strong>Imprint:</strong> {{copy.imprint}}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
