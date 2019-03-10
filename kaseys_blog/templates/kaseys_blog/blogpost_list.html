@@ -13,4 +13,6 @@
     {% else %}
         <p>There are no posts available.</p>
     {% endif %}
+
+    <button type="button"><a href="{% url 'blogpost_create' %}">New Post</a></button>
 {% endblock %}

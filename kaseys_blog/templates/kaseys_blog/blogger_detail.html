@@ -9,11 +9,11 @@
 
         <h4>Blog Posts</h4>
 
-        {% for blogpost in blogger.book_set.all %} 
+        {% for blogpost in blogger.blogpost_set.all %} 
 
-        <p><a href="{% url 'blogpost-detail' blogpost.pk %}">{{ blogpost }} {% for detail in blogpost.blogcomment_set.all %}({{detail.comment}}){% endfor %}</a>
-            ({{blogpost.blogcomment_set.all.count}})</p>
-        <p>{{ blogpost.summary }} {% for genre in book.genre.all %} <strong>({{genre}})</strong>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        <p><a href="{% url 'blogpost-detail' blogpost.pk %}">{{ blogpost }} {% for detail in blogpost.topic_set.all %}({{detail.name}}){% endfor %}</a>
+            <strong>({% for topic in blogpost.topic.all %} {{ topic }}{% if not forloop.last %}, {% endif %}{% endfor %})</strong></p>
+        <p>{{ blogpost.blog_body }} {% for topic in blogpost.topic.all %} {% if not forloop.last %}, {% endif %}{% endfor %}</p>
         
         {% endfor %}
     </div>

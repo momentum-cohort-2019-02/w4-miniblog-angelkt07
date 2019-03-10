@@ -6,8 +6,8 @@
     <h2>Blogs</h2>
     <p>These are the available items on this site:</p>
     <ul>
-        <li><strong>Blog Posts</strong> {{ num_blogpost }}</li>
-        <li><strong>Bloggers</strong> {{ num_blogger }}</li>
+        <li><strong><a href="{% url 'blogposts' %}">Blog Posts</a></strong> {{ num_blogpost }}</li>
+        <li><strong><a href="{% url 'bloggers' %}">Bloggers</a></strong> {{ num_blogger }}</li>
         <li><strong>Topics</strong> {{ num_topic }}</li>
     </ul>
 {% endblock %}

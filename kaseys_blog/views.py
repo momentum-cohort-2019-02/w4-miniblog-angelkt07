@@ -43,6 +43,12 @@ class BloggerListView(generic.ListView):
 class BloggerDetailView(generic.DetailView):
     model = Blogger
 
+class TopicDetailView(generic.DetailView):
+    model = Topic
+
+class TopicListView(generic.ListView):
+    model = Topic
+
 
 # Going to make it to where a Blogger can see all of their BlogPosts
 class BlogPostByUserListView(LoginRequiredMixin,generic.ListView):
@@ -72,4 +78,12 @@ class BloggerUpdate(UpdateView):
 class BloggerDelete(DeleteView):
     model = Blogger
     success_url = reverse_lazy('bloggers')
+
+class BlogPostCreate(CreateView):
+    model = BlogPost
+    fields = '__all__'
+
+class TopicCreate(CreateView):
+    model = Topic
+    fields = '__all__'
 

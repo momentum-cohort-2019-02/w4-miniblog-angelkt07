@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <form style="margin-top:20px" action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+    <button style="margin-top:20px" type="button"><a href="{% url 'blogger_create' %}" >New Blogger</a></button>
+    <button type="button"><a href="{% url 'topic_create' %}">New Topic</a></button>
+{% endblock %}

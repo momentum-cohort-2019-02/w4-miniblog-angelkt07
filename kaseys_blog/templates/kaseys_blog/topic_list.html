@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Blog Post Topics</h1>
+    <ul>
+        {% for topic in topic_list %}
+            <li>
+                {{ topic.name }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <button type="button"><a href="{% url 'topic_create' %}">New Topic</a></button>
+{% endblock %}

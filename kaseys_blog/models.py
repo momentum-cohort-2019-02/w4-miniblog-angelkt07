@@ -11,6 +11,9 @@ class Topic(models.Model):
         """String for representing the Topic model"""
         return self.name
 
+  
+
+
 class BlogPost(models.Model):
     """ A model for the blog's posts that will be entered"""
     title = models.CharField(max_length=200)
@@ -30,8 +33,9 @@ class BlogPost(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        """Returns the URL to access a detail record for this book."""
+        """Returns the URL to access a detail record for this Blogpost."""
         return reverse('blogpost-detail', args=[str(self.id)])
+
 
 class BlogComment(models.Model):
     """Model for the inline comments that can be added to the post itself"""

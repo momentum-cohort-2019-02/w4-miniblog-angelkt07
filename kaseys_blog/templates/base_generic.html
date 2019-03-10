@@ -17,7 +17,7 @@
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'blogposts' %}">All Blog Posts</a></li>
                     <li><a href="{% url 'bloggers' %}">All Bloggers</a></li>
-                    <li><a href="">All Topics</a></li>
+                    <li><a href="{% url 'topics' %}">All Topics</a></li>
                     {% if user.is_authenticated %}
                         <li style="margin-top:10px">User: <a href="">{{ user.get_username }}</a></li>
                         <li><a href="">My Blogs</a></li>
