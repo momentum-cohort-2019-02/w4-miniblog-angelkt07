@@ -50,6 +50,8 @@ class BlogComment(models.Model):
     def __str__(self):
         """String for BlogComments"""
         return f'{self.id} ({self.blogpost.title})'
+    
+    
 
 
 class Blogger(models.Model):

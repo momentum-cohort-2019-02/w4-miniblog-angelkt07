@@ -86,9 +86,11 @@ class BlogPostCreate(CreateView):
 class TopicCreate(CreateView):
     model = Topic
     fields = '__all__'
+    success_url = reverse_lazy('topics')
 
 class BlogCommentCreate(CreateView):
     model = BlogComment
     fields = '__all__'
-    initial = {'comment_date' : comment_date}
+    # success_url = reverse_lazy('blogpost-detail', args=[str(blogpost.pk)])
+    success_url = reverse_lazy('blogposts')
 
