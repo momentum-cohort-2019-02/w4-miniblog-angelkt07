@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1 style="margin-top:20px;margin-bottom:20px;">Blogger:  <em>{{blogger.first_name}} {{blogger.last_name}}</em></h1>
+
+    <h3 style="margin-top:20px">({{blogger.occupation}}-{{blogger.city}})</h3>
+
+    <div style="margin-left:20px;margin-top:30px">
+
+        <h4>Blog Posts</h4>
+
+        {% for blogpost in blogger.book_set.all %} 
+
+        <p><a href="{% url 'blogpost-detail' blogpost.pk %}">{{ blogpost }} {% for detail in blogpost.blogcomment_set.all %}({{detail.comment}}){% endfor %}</a>
+            ({{blogpost.blogcomment_set.all.count}})</p>
+        <p>{{ blogpost.summary }} {% for genre in book.genre.all %} <strong>({{genre}})</strong>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+        
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -17,7 +17,7 @@ class BlogPost(models.Model):
     blogger = models.ForeignKey('Blogger', on_delete=models.SET_NULL, null=True)
     topic = models.ManyToManyField('Topic', help_text='Select a topic for this post.')
     postdate = models.DateTimeField(auto_now=True)
-    blog_body = models.CharField(max_length=1000, null=True)
+    blog_body = models.TextField(max_length=1000, help_text='Type your blog here.', null=True)
 
     def display_topic(self):
         """Create a string for the topic name"""
@@ -31,7 +31,7 @@ class BlogPost(models.Model):
 
     def get_absolute_url(self):
         """Returns the URL to access a detail record for this book."""
-        return reverse('blog-detail', args=[str(self.id)])
+        return reverse('blogpost-detail', args=[str(self.id)])
 
 class BlogComment(models.Model):
     """Model for the inline comments that can be added to the post itself"""

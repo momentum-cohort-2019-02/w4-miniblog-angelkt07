@@ -17,12 +17,14 @@ def index(request):
     num_blogpost = BlogPost.objects.all().count()
     num_comments = BlogComment.objects.all().count()
     num_blogger = Blogger.objects.count()
+    num_topic = Topic.objects.all().count()
     num_visits = request.session.get('num_visits', 0)
     request.session['num_visits'] = num_visits + 1
 
     context = {
         'num_blogpost' : num_blogpost,
         'num_blogger' : num_blogger,
+        'num_topic' : num_topic,
         'num_visits' : num_visits,
     }
 
@@ -65,7 +67,7 @@ class BloggerCreate(CreateView):
 
 class BloggerUpdate(UpdateView):
     model = Blogger
-    fields = ['first_name', 'last_name', 'city', 'email']
+    fields = ['first_name', 'last_name', 'occupation', 'city']
 
 class BloggerDelete(DeleteView):
     model = Blogger
