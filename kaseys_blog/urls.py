@@ -15,4 +15,5 @@ urlpatterns = [
     path('blogger/<int:pk>/delete/', views.BloggerDelete.as_view(), name='blogger_delete'),
     path('blogpost/create/', views.BlogPostCreate.as_view(), name='blogpost_create'),
     path('topic/create/', views.TopicCreate.as_view(), name='topic_create'),
+    path('blogcomment/create/', views.BlogCommentCreate.as_view(), name='blogcomment_create'),
 ]

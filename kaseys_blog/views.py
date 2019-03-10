@@ -87,3 +87,8 @@ class TopicCreate(CreateView):
     model = Topic
     fields = '__all__'
 
+class BlogCommentCreate(CreateView):
+    model = BlogComment
+    fields = '__all__'
+    initial = {'comment_date' : comment_date}
+

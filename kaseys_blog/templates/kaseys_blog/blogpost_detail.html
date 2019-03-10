@@ -4,8 +4,10 @@
     <h1 style="margin-top:20px;margin-bottom:20px;">Title: {{ blogpost.title }}</h1>
 
     <p><strong>Blogger:</strong><a href="{% url 'blogger-detail' blogpost.blogger.pk %}">{{ blogpost.blogger }}</a></p>
-    <p><strong>Blog Post:</strong> {{ blogpost.blog_body }}</p>
+    <p><strong>Post Date:</strong> {{ blogpost.postdate }} </p>
     <p><strong>Topic:</strong> {% for topic in blogpost.topic.all %} {{ topic }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p><strong>Blog Post:</strong> {{ blogpost.blog_body }}</p>
+    
 
     <div style="margin-left:20px;margin-top:20px">
         <h4>Comments</h4>
@@ -16,5 +18,9 @@
             <p style="font-size:small"><strong>({{comment.comment_date}})</strong></p>
         {% endfor %}
     </div>
+
+    <button style="margin-top:20px" type="button">
+       <a href="{% url 'blogcomment_create' %}">New Comment</a>
+    </button>
 
 {% endblock %}

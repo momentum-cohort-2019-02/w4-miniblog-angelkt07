@@ -41,8 +41,8 @@ class BlogComment(models.Model):
     """Model for the inline comments that can be added to the post itself"""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for the comments.')
     blogpost = models.ForeignKey('BlogPost', on_delete=models.SET_NULL, null=True)
-    comment = models.CharField(max_length=200)
-    comment_date = models.DateField(null=True, blank=True)
+    comment = models.TextField(max_length=200)
+    comment_date = models.DateField(auto_now=True, null=True, blank=True)
 
     class Meta:
         ordering = ['blogpost', 'comment_date']
