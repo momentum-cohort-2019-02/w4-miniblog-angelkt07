@@ -51,8 +51,6 @@ class BlogComment(models.Model):
         """String for BlogComments"""
         return f'{self.id} ({self.blogpost.title})'
     
-    
-
 
 class Blogger(models.Model):
     """model for my bloggers"""
@@ -66,7 +64,7 @@ class Blogger(models.Model):
         ordering = ['last_name', 'first_name']
 
     def get_absolute_url(self):
-        """Returns the url to access a particular author instance."""
+        """Returns the url to access a particular blogger instance."""
         return reverse('blogger-detail', args=[str(self.id)])
 
     def __str__(self):
